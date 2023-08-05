@@ -5,16 +5,16 @@ const CSV = require("../models/csv");
 
 // Upload CSV file and add details in db
 module.exports.upload = async (req, res) => {
-  CSV.csvUpload(req, res, function (err) {
+  CSV.csvUpload(req, res, async function (err) {
     if (err) {
       console.log("******* Multer Error **********");
     }
     if (req.file) {
       const diskPath = CSV.csvPath + "/" + req.file.filename;
-      CSV.create({ name: req.file.originalname, path: diskPath });
+      await CSV.create({ name: req.file.originalname, path: diskPath });
     }
+    return res.redirect("/");
   });
-  return res.redirect("/");
 };
 
 // read file contains
@@ -26,7 +26,6 @@ module.exports.detail = async (req, res) => {
     .pipe(csv())
     .on("data", (data) => results.push(data))
     .on("end", () => {
-      console.log(results);
       return res.render("csv_detail", {
         results: results,
         fileName: file.name,
