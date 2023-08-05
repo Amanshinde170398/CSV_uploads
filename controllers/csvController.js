@@ -27,6 +27,9 @@ module.exports.detail = async (req, res) => {
     .on("data", (data) => results.push(data))
     .on("end", () => {
       console.log(results);
-      return res.render("csv_detail", { results: results });
+      return res.render("csv_detail", {
+        results: results,
+        fileName: file.name,
+      });
     });
 };

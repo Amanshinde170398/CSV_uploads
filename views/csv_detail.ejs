@@ -1,19 +1,21 @@
-<div>Detail</div>
-<div>
-  <input id="input-search" placeholder="search" type="text" />
-  <button id="search-btn" class="btn btn-primary">GO</button>
-</div>
-<table>
-  <tr>
-    <% for(const property in results[0]){ %>
-    <th><%= property %></th>
+<div class="file-detail-cont">
+  <div class="detail-header mx-4"><%= fileName %></div>
+  <div class="search-container my-3">
+    <input id="input-search" class="mr-2" placeholder="search" type="text" />
+    <button id="search-btn" class="btn btn-primary">search</button>
+  </div>
+  <table>
+    <tr>
+      <% for(const property in results[0]){ %>
+      <th><%= property %></th>
+      <% } %>
+    </tr>
+    <% for(const result of results) { %>
+    <tr class="row-data">
+      <% for(const property in result ) {%>
+      <td><%= result[property] %></td>
+      <%}%>
+    </tr>
     <% } %>
-  </tr>
-  <% for(const result of results) { %>
-  <tr class="rowas">
-    <% for(const property in result ) {%>
-    <td><%= result[property] %></td>
-    <%}%>
-  </tr>
-  <% } %>
-</table>
+  </table>
+</div>
