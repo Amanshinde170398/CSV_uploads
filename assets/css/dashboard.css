@@ -1,6 +1,42 @@
 .file-input-cont {
-  width: 20rem;
-  height: 6rem;
+  width: 40rem;
+  height: 10rem;
   margin: 1rem auto;
   border: 1px dashed black;
+  padding: 2rem;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+#upload-csv-form {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-container {
+  width: 50rem;
+  height: fit-content;
+  margin: 2rem auto;
+}
+
+.csv-file {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45rem;
+  height: 5rem;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 2px lightgray;
+  padding: 0 2rem;
 }
