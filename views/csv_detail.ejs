@@ -1,0 +1,19 @@
+<div>Detail</div>
+<div>
+  <input id="input-search" placeholder="search" type="text" />
+  <button id="search-btn" class="btn btn-primary">GO</button>
+</div>
+<table>
+  <tr>
+    <% for(const property in results[0]){ %>
+    <th><%= property %></th>
+    <% } %>
+  </tr>
+  <% for(const result of results) { %>
+  <tr class="rowas">
+    <% for(const property in result ) {%>
+    <td><%= result[property] %></td>
+    <%}%>
+  </tr>
+  <% } %>
+</table>

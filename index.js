@@ -12,10 +12,9 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
-
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, "./assets")));
-app.use(express.urlencoded);
+app.use(express.urlencoded());
 app.use("/", require("./routes"));
 
 app.listen(PORT, (err) => {

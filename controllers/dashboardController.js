@@ -1,5 +1,7 @@
+const { render } = require("ejs");
 const CSV = require("../models/csv");
 
 module.exports.dasboard = async (req, res) => {
-  // TODO show dashboard page here
+  const csvFiles = await CSV.find({});
+  return res.render("dashboard", { csvFiles: csvFiles });
 };

@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/dashboard.css" />
+<div class="dashboard-container">
+  <div class="file-input-cont">
+    <form action="/csv/upload" method="post" enctype="multipart/form-data">
+      <input id="csv-file-upload" name="csv" type="file" />
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+  <div class="list-container mt-5">
+    <ul>
+      <% for(let csv of csvFiles) { %>
+      <li class="csv-file">
+        <span class="file-name"><%= csv.name%></span>
+        <a href="/csv/detail/<%= csv._id%>" class="btn">Detail</a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>
